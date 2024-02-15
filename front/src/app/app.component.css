@@ -1,0 +1,13 @@
+a:visited {
+    color: white;
+    text-decoration: none!important;
+}
+
+a{
+   color: white;
+   text-decoration: none!important;
+}
+
+.header-navig li{
+    margin-right: 20px;
+}

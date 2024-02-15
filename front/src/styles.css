@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* styles.css (или ваш глобальный стилевой файл) */
+.custom-dialog {
+    max-width: none !important;
+  }
+  
+  .custom-dialog-content {
+    overflow: visible !important;
+  }
+  
+  .mat-mdc-form-field-focus-overlay {
+    /* Ваши настройки стилей */
+    background-color: #ffffff!important; /* Например, красный цвет */
+    opacity: 0; /* Прозрачность, если нужно */
+  }
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled){
+    background-color: #f8f8f8!important; /* Например, красный цвет */
+  }
+
+  .mdc-text-field--filled .mdc-line-ripple::after {
+    border-bottom-width: 0!important;
+    
+  }
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+    border-bottom-color: rgba(197, 197, 197, 0.42)!important;
+  }

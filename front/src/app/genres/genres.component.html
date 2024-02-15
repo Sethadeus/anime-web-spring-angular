@@ -1,0 +1,54 @@
+<div class="container mt-3">
+
+    <mat-form-field class="example-chip-list">
+        <mat-label>Genres</mat-label>
+        <mat-chip-grid #chipGrid aria-label="Enter genres">
+          @for (genre of genres; track genre) {
+            <mat-chip-row class="mychip" 
+              (removed)="remove(genre)"
+              [editable]="true"
+              [aria-description]="'press enter to edit ' + genre.name">
+              {{genre.name}}
+              <button matChipRemove [attr.aria-label]="'remove ' + genre" (click)="remove(genre)">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip-row>
+          }
+          <input placeholder="New genre..."
+                 [matChipInputFor]="chipGrid"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="addGenre($event)"/>
+        </mat-chip-grid>
+      </mat-form-field>
+      
+      
+
+      <mat-form-field class="example-chip-list">
+        <mat-label>Types</mat-label>
+        <mat-chip-grid #chipGrid2 aria-label="Enter types">
+          @for (type of types; track type) {
+            <mat-chip-row class="mychip" 
+              (removed)="removeType(type)"
+              [editable]="true"
+              [aria-description]="'press enter to edit ' + type.name">
+              {{type.name}}
+              <button matChipRemove [attr.aria-label]="'remove ' + type" (click)="removeType(type)">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip-row>
+          }
+          <input placeholder="New type..."
+                 [matChipInputFor]="chipGrid2"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="addType($event)"/>
+        </mat-chip-grid>
+      </mat-form-field>
+      
+      
+
+    
+</div>
+
+  

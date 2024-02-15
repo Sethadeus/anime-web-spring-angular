@@ -1,0 +1,43 @@
+.mat-dialog-content{
+    padding: 20px;
+}
+.form-floating{
+    margin-bottom: 20px;
+    width: 600px;
+}
+
+#floatingDesc{
+height: 200px;
+}
+
+.example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+  }
+
+.multic{
+    width: 600px;
+}
+.create-btn{
+    width: 600px;
+}
+
+.FileUploader{
+    width: 600px;
+    margin-bottom: 20px;
+}
+
+::ng-deep .mat-dialog-container {
+    display: flex !important;
+    flex-direction: column !important;
+    max-height: 100vh !important;
+  }
+  
+  ::ng-deep .mat-dialog-content {
+    flex: 1 !important;
+    overflow-y: auto !important;
+  }
+  
+  ::ng-deep .mat-dialog-actions {
+    margin-top: auto !important;
+  }

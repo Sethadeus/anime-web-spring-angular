@@ -1,0 +1,90 @@
+
+<div class="container mt-3">
+  
+  <div class="adminAnimePanel" *ngIf="isAdmin">
+    <div>
+        <button class="btn btn-outline-dark me-2" (click)="CreateAnime()">Добавить</button>
+    </div>
+  </div>
+
+  <div *ngFor="let anime of animes; let last = last" [class.mb-3]="!last" class="mycard">
+
+    <mat-card>
+      <div class="card-container">
+
+        <div class="wrapper__img">
+          <img mat-card-image [src]="anime.imageUrl" alt="Anime Image" width="133" height="200">
+          <i class="rating-flag">
+
+            <svg width="45%" height="100%" viewBox="0 0 2481 3508" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+              <style>
+                .outline {
+                  stroke: rgb(204, 170, 141);
+                  stroke-width: 3px;
+                }
+              </style>
+              <g transform="matrix(3.66136,0,0,4.3604,-2154.87,-4630.86)">
+                <path class="outline" d="M590.551,1299.21L590.551,1062.99L1181.1,1062.99L1127.95,1181.1L1181.1,1299.21L675.906,1299.21L675.906,1384.57L590.551,1299.21Z" style="fill:url(#_Radial1);"/>
+              </g>
+              <g transform="matrix(0.569477,0,0,0.569477,129.603,-262.413)">
+                <path class="outline" d="M537.03,890.451L668.807,1216.09L1019.23,1240.79L750.25,1466.75L835.047,1807.65L537.03,1621.66L239.013,1807.65L323.81,1466.75L54.828,1240.79L405.253,1216.09L537.03,890.451Z"/>
+              </g>
+              <defs>
+                <radialGradient id="_Radial1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(590.551,0,0,321.575,590.551,1223.78)">
+                  <stop offset="0" style="stop-color:white;stop-opacity:1"/>
+                  <stop offset="0" style="stop-color:rgb(255, 210, 62);stop-opacity:1"/>
+                  <stop offset="1" style="stop-color:rgb(255, 188, 63);stop-opacity:1"/>
+                </radialGradient>
+              </defs>
+
+            </svg>
+
+
+            <div class="rating-num">
+              {{ anime.rating | number: '1.1-1'}}
+            </div>
+          </i>
+        </div>
+
+
+        <div class="card-text">
+            <mat-card-title><a [routerLink]="['/anime', anime.id]">{{ anime.name }}</a></mat-card-title>
+
+            <div class="adminDelete" *ngIf="isAdmin">
+              <div>
+                  <button class="btn btn-outline-dark me-2" (click)="DeleteAnime(anime)">Удалить</button>
+              </div>
+            </div>
+
+            <div class="adminEdit" *ngIf="isAdmin">
+              <div>
+                  <button class="btn btn-outline-dark me-2" (click)="EditAnime(anime)">Редактировать</button>
+              </div>
+            </div>
+
+
+
+            <mat-card-subtitle>{{anime.originalName}}</mat-card-subtitle>
+
+            <div class="card-genres">
+              {{anime.type.name}}
+              <span *ngIf="anime.genres && anime.genres.length > 0"> / </span>
+              <span *ngFor="let genre of anime.genres; let last = last">
+                  {{genre.name}}{{!last ? ', ' : ''}}
+              </span>
+          </div>
+
+            <div class="card-desc">
+              {{ anime.desc | slice:0:500 }}
+              {{ anime.desc.length > 500 ? '...' : '' }}
+            </div>
+        </div>
+
+
+      </div>
+    </mat-card>
+
+  </div>
+
+</div>
+
